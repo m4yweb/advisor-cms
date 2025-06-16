@@ -10,9 +10,11 @@ on:
       - 'package-lock.json'
       - '.github/workflows/docker-publish.yml'
 
+      
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    environment: PROD
     permissions:
       contents: read
       packages: write
