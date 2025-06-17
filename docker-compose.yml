@@ -1,8 +1,7 @@
 services:
   mystrapi:
     container_name: mystrapi
-    build: .
-    image: mystrapi:latest
+    image: docker-registry.optimystic.pt/optimystic/strapi:latest
     restart: unless-stopped
     env_file: .env
     environment:
