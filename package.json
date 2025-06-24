@@ -4,6 +4,8 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
+    "docker:build": "docker build -f Dockerfile.prod -t ${DOCKER_REGISTRY:-docker-registry.optimystic.pt/optimystic}/strapi:latest .",
+    "docker:publish": "docker push ${DOCKER_REGISTRY:-registry.hub.docker.com/optimystic}/strapi:latest",
     "build": "strapi build",
     "console": "strapi console",
     "deploy": "strapi deploy",
@@ -16,20 +18,20 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.15.1",
-    "@strapi/plugin-users-permissions": "5.15.1",
-    "@strapi/strapi": "5.15.1",
-    "better-sqlite3": "11.3.0",
-    "fs-extra": "^10.0.0",
-    "mime-types": "^2.1.27",
-    "pg": "^8.16.0",
+    "@strapi/plugin-cloud": "5.16.0",
+    "@strapi/plugin-users-permissions": "5.16.0",
+    "@strapi/strapi": "5.16.0",
+    "better-sqlite3": "12.1.0",
+    "fs-extra": "^11.3.0",
+    "mime-types": "^3.0.1",
+    "pg": "^8.16.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "typescript": "^5"
