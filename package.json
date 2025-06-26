@@ -4,8 +4,8 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "docker:build": "docker build -f Dockerfile.prod -t ${DOCKER_REGISTRY:-docker-registry.optimystic.pt/optimystic}/strapi:latest .",
-    "docker:publish": "docker push ${DOCKER_REGISTRY:-registry.hub.docker.com/optimystic}/strapi:latest",
+    "docker:build": "dotenvx run -- cross-var \"docker build -f Dockerfile.prod -t $DOCKER_REGISTRY/optimystic/strapi:latest .\"",
+    "docker:publish": "dotenvx run -- npx cross-var \"docker push $DOCKER_REGISTRY/optimystic/strapi:latest\"",
     "build": "strapi build",
     "console": "strapi console",
     "deploy": "strapi deploy",
@@ -31,9 +31,11 @@
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.45.1",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cross-var": "^1.1.0",
     "typescript": "^5"
   },
   "engines": {
